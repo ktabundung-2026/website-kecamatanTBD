@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Situs Resmi Kecamatan Tabundung</title>
-    <!-- Bootstrap CSS untuk tampilan modern & responsif -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .hero-section {
@@ -32,14 +31,15 @@
                     <li class="nav-item"><a class="nav-link active" href="#">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link" href="#profil">Profil</a></li>
                     <li class="nav-item"><a class="nav-link" href="#layanan">Layanan</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#download">Download</a></li>
+                    <!-- Tautan diubah langsung menuju ke halaman download.html -->
+                    <li class="nav-item"><a class="nav-link" href="download.html">Download</a></li>
                     <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section / Banner -->
+    <!-- Hero Section -->
     <header class="hero-section text-center">
         <div class="container">
             <h1 class="display-4 fw-bold">Selamat Datang di Website Resmi</h1>
@@ -110,42 +110,8 @@
         </div>
     </section>
 
-    <!-- Download Section -->
-    <section id="download" class="py-5">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2>Pusat Unduhan (Download)</h2>
-                <p class="text-muted">Unduh formulir pelayanan dan dokumen publik resmi Kecamatan Tabundung</p>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="list-group shadow-sm">
-                        <!-- File Contoh 1 (baca-saya.txt) -->
-                        <div class="list-group-item d-flex justify-content-between align-items-center py-3">
-                            <div>
-                                <h6 class="mb-1 fw-bold">📄 Panduan Penggunaan Layanan Website</h6>
-                                <small class="text-muted">Format: .txt | Ukuran: 1 KB</small>
-                            </div>
-                            <a href="download/baca.txt" class="btn btn-outline-primary btn-sm" download>Unduh File</a>
-                        </div>
-                        
-                        <!-- File Contoh 2 (Cara menghubungkan file asli nantinya) -->
-                        <div class="list-group-item d-flex justify-content-between align-items-center py-3">
-                            <div>
-                                <h6 class="mb-1 fw-bold">📝 Formulir Surat Keterangan Usaha (SKU)</h6>
-                                <small class="text-muted">Format: .pdf | Ukuran: 225 KB</small>
-                            </div>
-                            <!-- Jika nanti Anda mengupload file SKU.pdf ke folder download, ganti href menjadi "download/SKU.pdf" -->
-                            <a href="download/Formulir F-2.01.pdf" class="btn btn-outline-secondary btn-sm" download>Unduh File</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Kontak Section -->
-    <section id="kontak" class="py-5 bg-light">
+    <section id="kontak" class="py-5">
         <div class="container">
             <div class="text-center mb-5">
                 <h2>Hubungi Kami</h2>
@@ -168,7 +134,6 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS (untuk menu drop-down mobile) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
