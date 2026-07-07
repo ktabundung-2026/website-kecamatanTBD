@@ -1,0 +1,2 @@
+Halaman ini tentang bagaimana website ini dibuat.
+Website ini dibuat dengan menggunakan GitHub.com
