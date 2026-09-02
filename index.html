@@ -197,7 +197,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Script Kalkulator / Penjumlahan Otomatis Berdasarkan Jenis Hewan -->
+    <!-- Script Penghitung Otomatis Berdasarkan Kolom Jenis Ternak (Index 2) -->
     <script>
         const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRcuMP7W96_9pZ2vSnGj8X7bDKIVlmRKamWbH8EYRm25QBqNUq7uJ-u1ky6RHclUjli7BhbfoIHC0RX/pub?gid=0&single=true&output=csv";
 
@@ -206,39 +206,35 @@
             .then(csvText => {
                 const rows = csvText.split("\n");
                 
-                let totalSapi = 0;
-                let totalKuda = 0;
-                let totalKerbau = 0;
+                let countSapi = 0;
+                let countKuda = 0;
+                let countKerbau = 0;
 
-                // Mulai membaca dari baris ke-1 (mengabaikan baris ke-0 header)
+                // Mulai dari baris ke-1 (mengabaikan header baris ke-0)
                 for (let i = 1; i < rows.length; i++) {
                     if (!rows[i].trim()) continue; // Lewati baris kosong
 
-                    // Memecah kolom (menggunakan regex agar aman jika ada teks di dalam tanda kutip)
+                    // Memecah kolom berdasarkan tanda koma (aman terhadap koma di dalam teks bertanda kutip)
                     const cols = rows[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
                     
-                    if (cols.length >= 2) {
-                        // SESUAIKAN KOLOM DI SINI:
-                        // Misal: Kolom ke-0 (index 0) adalah Nama Hewan / Kategori, Kolom ke-1 (index 1) adalah Jumlahnya
-                        // Anda bisa mengubah angka kolom di bawah ini jika posisinya berbeda di sheet Anda
-                        const jenisHewan = cols[0] ? cols[0].replace(/["']/g, "").trim().toLowerCase() : "";
-                        const jumlahStr = cols[1] ? cols[1].replace(/["']/g, "").replace(/\./g, "").trim() : "0";
-                        const jumlah = parseFloat(jumlahStr) || 0;
+                    if (cols.length >= 3) {
+                        // Kolom ke-3 (index 2) adalah "Jenis Ternak"
+                        const jenisTernak = cols[2] ? cols[2].replace(/["']/g, "").trim().toLowerCase() : "";
 
-                        if (jenisHewan.includes("sapi")) {
-                            totalSapi += jumlah;
-                        } else if (jenisHewan.includes("kuda")) {
-                            totalKuda += jumlah;
-                        } else if (jenisHewan.includes("kerbau")) {
-                            totalKerbau += jumlah;
+                        if (jenisTernak.includes("sapi")) {
+                            countSapi++;
+                        } else if (jenisTernak.includes("kuda")) {
+                            countKuda++;
+                        } else if (jenisTernak.includes("kerbau")) {
+                            countKerbau++;
                         }
                     }
                 }
 
-                // Menampilkan hasil penjumlahan ke website dengan pemisah ribuan (format lokal Indonesia)
-                document.getElementById('val-sapi').innerText = totalSapi.toLocaleString('id-ID');
-                document.getElementById('val-kuda').innerText = totalKuda.toLocaleString('id-ID');
-                document.getElementById('val-kerbau').innerText = totalKerbau.toLocaleString('id-ID');
+                // Menampilkan hasil penghitungan ke kartu statistik website dengan format angka Indonesia
+                document.getElementById('val-sapi').innerText = countSapi.toLocaleString('id-ID');
+                document.getElementById('val-kuda').innerText = countKuda.toLocaleString('id-ID');
+                document.getElementById('val-kerbau').innerText = countKerbau.toLocaleString('id-ID');
             })
             .catch(error => {
                 console.error('Gagal mengambil data dari Google Sheets:', error);
