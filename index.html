@@ -206,9 +206,9 @@
             .then(csvText => {
                 const rows = csvText.split("\n");
                 
+                let countKerbau = 0;
                 let countSapi = 0;
                 let countKuda = 0;
-                let countKerbau = 0;
 
                 // Mulai dari baris ke-1 (mengabaikan header baris ke-0)
                 for (let i = 1; i < rows.length; i++) {
