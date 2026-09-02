@@ -15,6 +15,24 @@
             font-size: 3rem;
             color: #0d6efd;
         }
+        /* Style khusus untuk kotak embed Google Sheets */
+        .iframe-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 50%; /* Mengatur rasio aspek agar responsif */
+            min-height: 450px;
+        }
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
     </style>
 </head>
 <body>
@@ -34,6 +52,7 @@
                     <li class="nav-item"><a class="nav-link active" href="#">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link" href="#profil">Profil</a></li>
                     <li class="nav-item"><a class="nav-link" href="#layanan">Layanan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#populasi">E-Ternak</a></li>
                     <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
                     <li class="nav-item"><a class="nav-link" href="download.html">Download</a></li>
                     <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
@@ -113,8 +132,30 @@
         </div>
     </section>
 
+    <!-- Populasi Ternak Section (E-Ternak TAB) -->
+    <section id="populasi" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Dashboard E-Ternak Tabundung</h2>
+                <p class="text-muted">Ringkasan dan data populasi ternak di wilayah Kecamatan Tabundung</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card shadow border-0">
+                        <div class="card-body p-2 p-md-4">
+                            <!-- Container Iframe yang Responsif -->
+                            <div class="iframe-container">
+                                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRcuMP7W96_9pZ2vSnGj8X7bDKIVlmRKamWbH8EYRm25QBqNUq7uJ-u1ky6RHclUjli7BhbfoIHC0RX/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Kontak Section -->
-    <section id="kontak" class="py-5">
+    <section id="kontak" class="py-5 bg-light">
         <div class="container">
             <div class="text-center mb-5">
                 <h2>Hubungi Kami</h2>
