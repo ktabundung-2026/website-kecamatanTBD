@@ -200,20 +200,36 @@
 
     <!-- Script Opsional untuk Menarik Data Real-Time (Jika Spreadsheet dipublikasikan ke JSON/CSV) -->
    <script>
-    // Ganti URL di bawah dengan URL Web App dari Google Apps Script yang baru saja Anda salin
-    const urlApi = "https://script.google.com/macros/s/AKfycbwV0MsRp_cZjf-zZ4wk2FpR-X-gA6G7WpgMHAMkLJgH8kljq0Ze72sLyCbx_aM3DenL/exec";
+   <script>
+    // Ganti URL di bawah dengan link CSV Google Sheets Anda
+    const csvUrl = "LINK_CSV_ANDA_DISINI";
 
-    fetch(urlApi)
-        .then(response => response.json())
-        .then(data => {
-            // Memasukkan data ke elemen HTML
-            document.getElementById('val-sapi').innerText = data.sapi.toLocaleString();
-            document.getElementById('val-kuda').innerText = data.kuda.toLocaleString();
-            document.getElementById('val-kerbau').innerText = data.kerbau.toLocaleString();
+    fetch(csvUrl)
+        .then(response => response.text())
+        .then(csvText => {
+            // Memecah teks CSV menjadi baris-baris data
+            const rows = csvText.split("\n");
+            
+            // CONTOH: Jika data Anda berada di baris tertentu (misal baris ke-2, ke-3, dst)
+            // Format baris CSV dipisahkan oleh tanda koma (,)
+            // Sesuaikan indeks [row] dan [kolom] dengan letak data di Google Sheets Anda
+            
+            if (rows.length > 1) {
+                // Contoh baris 1 (setelah header): Sapi
+                const dataSapi = rows[1] ? rows[1].split(",")[1] : "0"; 
+                // Contoh baris 2: Kuda
+                const dataKuda = rows[2] ? rows[2].split(",")[1] : "0"; 
+                // Contoh baris 3: Kerbau
+                const dataKerbau = rows[3] ? rows[3].split(",")[1] : "0"; 
+
+                // Menampilkan ke website
+                document.getElementById('val-sapi').innerText = dataSapi.trim();
+                document.getElementById('val-kuda').innerText = dataKuda.trim();
+                document.getElementById('val-kerbau').innerText = dataKerbau.trim();
+            }
         })
         .catch(error => {
-            console.error('Gagal memuat data ternak:', error);
-            // Fallback jika gagal memuat
+            console.error('Gagal mengambil data dari Google Sheets:', error);
             document.getElementById('val-sapi').innerText = "-";
             document.getElementById('val-kuda').innerText = "-";
             document.getElementById('val-kerbau').innerText = "-";
