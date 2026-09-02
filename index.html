@@ -221,26 +221,26 @@
                         // Kolom ke-3 (index 2) adalah "Jenis Ternak"
                         const jenisTernak = cols[2] ? cols[2].replace(/["']/g, "").trim().toLowerCase() : "";
 
-                        if (jenisTernak.includes("sapi")) {
+                        if (jenisTernak.includes("kerbau")) {
                             countSapi++;
-                        } else if (jenisTernak.includes("kuda")) {
+                        } else if (jenisTernak.includes("sapi")) {
                             countKuda++;
-                        } else if (jenisTernak.includes("kerbau")) {
+                        } else if (jenisTernak.includes("kuda")) {
                             countKerbau++;
                         }
                     }
                 }
 
                 // Menampilkan hasil penghitungan ke kartu statistik website dengan format angka Indonesia
-                document.getElementById('val-sapi').innerText = countSapi.toLocaleString('id-ID');
-                document.getElementById('val-kuda').innerText = countKuda.toLocaleString('id-ID');
-                document.getElementById('val-kerbau').innerText = countKerbau.toLocaleString('id-ID');
+                document.getElementById('val-kerbau').innerText = countSapi.toLocaleString('id-ID');
+                document.getElementById('val-sapi').innerText = countKuda.toLocaleString('id-ID');
+                document.getElementById('val-kuda').innerText = countKerbau.toLocaleString('id-ID');
             })
             .catch(error => {
                 console.error('Gagal mengambil data dari Google Sheets:', error);
+                document.getElementById('val-kerbau').innerText = "0";
                 document.getElementById('val-sapi').innerText = "0";
                 document.getElementById('val-kuda').innerText = "0";
-                document.getElementById('val-kerbau').innerText = "0";
             });
     </script>
 </body>
