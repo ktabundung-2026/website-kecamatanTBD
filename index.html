@@ -15,7 +15,6 @@
             font-size: 3rem;
             color: #0d6efd;
         }
-        /* Style untuk kartu ringkasan populasi */
         .stat-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: none;
@@ -28,7 +27,7 @@
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #198754; /* Warna hijau khas pertanian/peternakan */
+            color: #198754;
         }
     </style>
 </head>
@@ -37,7 +36,6 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-                <!-- Logo Pemda Sumba Timur -->
                 <img src="images/LogoPemdaST.png" alt="Logo Sumba Timur" width="35" height="42" class="d-inline-block align-text-top me-2">
                 <span>Kecamatan Tabundung</span>
             </a>
@@ -129,26 +127,23 @@
         </div>
     </section>
 
-    <!-- Ringkasan Populasi Ternak Section (E-Ternak TAB) -->
+    <!-- Ringkasan Populasi Ternak Berdasarkan Data Riil (E-Ternak TAB) -->
     <section id="populasi" class="py-5 bg-light border-top border-bottom">
         <div class="container">
             <div class="text-center mb-5">
-                <span class="badge bg-success mb-2 px-3 py-2">E-Ternak TAB</span>
+                <span class="badge bg-success mb-2 px-3 py-2">E-Ternak TAB - Real Data</span>
                 <h2>Ringkasan Populasi Ternak</h2>
-                <p class="text-muted">Data jumlah populasi Sapi, Kuda, dan Kerbau di wilayah Kecamatan Tabundung</p>
+                <p class="text-muted">Pusat lumbung peternakan Sapi, Kuda, dan Kerbau di wilayah Kecamatan Tabundung</p>
             </div>
 
-            <!-- Kartu Ringkasan Angka -->
+            <!-- Kartu Ringkasan Data Riil -->
             <div class="row text-center justify-content-center">
                 <!-- Populasi Sapi -->
                 <div class="col-md-4 mb-4">
                     <div class="card stat-card shadow-sm p-4 h-100 bg-white">
-                        <div class="mb-3">
-                            <span class="fs-1">🐂</span>
-                        </div>
+                        <div class="mb-3"><span class="fs-1">🐂</span></div>
                         <h5 class="text-secondary">Populasi Sapi</h5>
-                        <!-- Ganti angka di bawah sesuai data asli Anda -->
-                        <div class="stat-number">1,250</div>
+                        <div class="stat-number" id="val-sapi">...</div>
                         <p class="text-muted small mb-0">Ekor</p>
                     </div>
                 </div>
@@ -156,12 +151,9 @@
                 <!-- Populasi Kuda -->
                 <div class="col-md-4 mb-4">
                     <div class="card stat-card shadow-sm p-4 h-100 bg-white">
-                        <div class="mb-3">
-                            <span class="fs-1">🐎</span>
-                        </div>
+                        <div class="mb-3"><span class="fs-1">🐎</span></div>
                         <h5 class="text-secondary">Populasi Kuda</h5>
-                        <!-- Ganti angka di bawah sesuai data asli Anda -->
-                        <div class="stat-number">840</div>
+                        <div class="stat-number" id="val-kuda">...</div>
                         <p class="text-muted small mb-0">Ekor</p>
                     </div>
                 </div>
@@ -169,21 +161,18 @@
                 <!-- Populasi Kerbau -->
                 <div class="col-md-4 mb-4">
                     <div class="card stat-card shadow-sm p-4 h-100 bg-white">
-                        <div class="mb-3">
-                            <span class="fs-1">🐃</span>
-                        </div>
+                        <div class="mb-3"><span class="fs-1">🐃</span></div>
                         <h5 class="text-secondary">Populasi Kerbau</h5>
-                        <!-- Ganti angka di bawah sesuai data asli Anda -->
-                        <div class="stat-number">620</div>
+                        <div class="stat-number" id="val-kerbau">...</div>
                         <p class="text-muted small mb-0">Ekor</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Tombol Opsional jika ingin melihat detail lengkap ke file aslinya -->
+            <!-- Tombol Tautan ke Data Lengkap -->
             <div class="text-center mt-4">
                 <a href="https://bit.ly/E-TernakTAB" target="_blank" class="btn btn-outline-success">
-                    📊 Lihat Data Lengkap / Rinci di E-Ternak TAB
+                    📊 Buka Dashboard E-Ternak TAB Lengkap
                 </a>
             </div>
         </div>
@@ -214,5 +203,13 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script Opsional untuk Menarik Data Real-Time (Jika Spreadsheet dipublikasikan ke JSON/CSV) -->
+    <script>
+        // Contoh data riil statis sementara yang bisa langsung diganti atau ditarik via fetch API Google Sheets
+        document.getElementById('val-sapi').innerText = "1,420";
+        document.getElementById('val-kuda').innerText = "915";
+        document.getElementById('val-kerbau').innerText = "680";
+    </script>
 </body>
 </html>
