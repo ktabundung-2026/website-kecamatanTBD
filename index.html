@@ -196,9 +196,9 @@
                 
                 if (rows.length > 1) {
                     // Pastikan indeks baris [1], [2], [3] dan kolom [1] sesuai dengan posisi data di spreadsheet Anda
-                    const dataSapi = rows[1] ? rows[1].split(",")[4] : "0"; 
-                    const dataKuda = rows[2] ? rows[2].split(",")[4] : "0"; 
-                    const dataKerbau = rows[3] ? rows[3].split(",")[4] : "0"; 
+                    const dataSapi = rows[1] ? rows[1].split(",")[2] : "0"; 
+                    const dataKuda = rows[2] ? rows[2].split(",")[2] : "0"; 
+                    const dataKerbau = rows[3] ? rows[3].split(",")[2] : "0"; 
 
                     document.getElementById('val-sapi').innerText = dataSapi.trim() || "0";
                     document.getElementById('val-kuda').innerText = dataKuda.trim() || "0";
