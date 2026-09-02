@@ -199,11 +199,25 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Script Opsional untuk Menarik Data Real-Time (Jika Spreadsheet dipublikasikan ke JSON/CSV) -->
-    <script>
-        // Contoh data riil statis sementara yang bisa langsung diganti atau ditarik via fetch API Google Sheets
-        document.getElementById('val-sapi').innerText = "1,420";
-        document.getElementById('val-kuda').innerText = "915";
-        document.getElementById('val-kerbau').innerText = "680";
-    </script>
+   <script>
+    // Ganti URL di bawah dengan URL Web App dari Google Apps Script yang baru saja Anda salin
+    const urlApi = "URL_WEB_APP_ANDA_DISINI";
+
+    fetch(urlApi)
+        .then(response => response.json())
+        .then(data => {
+            // Memasukkan data ke elemen HTML
+            document.getElementById('val-sapi').innerText = data.sapi.toLocaleString();
+            document.getElementById('val-kuda').innerText = data.kuda.toLocaleString();
+            document.getElementById('val-kerbau').innerText = data.kerbau.toLocaleString();
+        })
+        .catch(error => {
+            console.error('Gagal memuat data ternak:', error);
+            // Fallback jika gagal memuat
+            document.getElementById('val-sapi').innerText = "-";
+            document.getElementById('val-kuda').innerText = "-";
+            document.getElementById('val-kerbau').innerText = "-";
+        });
+</script>
 </body>
 </html>
